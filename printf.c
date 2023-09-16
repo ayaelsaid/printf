@@ -23,12 +23,12 @@ int _printf(const char *format, ...)
 	{
 	case 's':
 	char *str = va_arg(pt, char *);
-		
+
 	_puts(str);
 	break;
 	case 'c':
 	int ch = va_arg(pt, int);
-		
+
 	_putchar(ch);
 	break;
 	case '%':
