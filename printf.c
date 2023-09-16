@@ -1,4 +1,8 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdarg.h>
 #include "main.h"
+
 /**
  * _printf - ...
  * @format- ...
@@ -7,10 +11,10 @@
 */ 
 int _printf(const char *format, ...)
 {
-	va_list p;
-	unsigned int b = 0, i = 0;
+	va_list pt;
+	unsigned int i = 0;
 
-	va_start(p, format);
+	va_start(pt, format);
 	while (format && format[i] != '\0')
 	{
 	if (format[i] == '%')
@@ -20,14 +24,14 @@ int _printf(const char *format, ...)
 	{
 	case 's':
 	{
-	char *str = va_arg(p, char *);
+	char *str = va_arg(pt, char *);
 	_puts(str);
 	break;
 	}
 	case 'c':
 	{
-	int c = va_arg(p, int);
-	_putchar(c);
+	int ch = va_arg(pt, int);
+	_putchar(ch);
 	break;
 	case '%':
 	_percent();
@@ -39,6 +43,6 @@ int _printf(const char *format, ...)
 	_putchar(format[i]);
 	i++;
 	}
-	va_end(p);
+	va_end(pt);
 	return (0);
 }
