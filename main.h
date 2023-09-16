@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdarg.h>
-
+#include<unistd.h>
 void _puts(char *str);
 void _percent(void);
 void _putchar(char c);
