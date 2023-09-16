@@ -22,15 +22,19 @@ int _printf(const char *format, ...)
 	switch (format[i])
 	{
 	case 's':
-	char *str = va_arg(pt, char *);
+		{
+		char *str = va_arg(pt, char *);
 
-	_puts(str);
-	break;
+		_puts(str);
+		break;
+		}
 	case 'c':
-	int ch = va_arg(pt, int);
+		{
+		int ch = va_arg(pt, int);
 
-	_putchar(ch);
-	break;
+		_putchar(ch);
+		break;
+		}
 	case '%':
 	_percent();
 	break;
