@@ -6,7 +6,8 @@
 */
 int _printf(const char *format, ...)
 {
-	int digit, digit_count = 0;
+	int digit = 0;
+	int digit_count = 0;
 	int div = 1;
 	va_list args;
 
