@@ -47,7 +47,8 @@ int _printf(const char *format, ...)
 						}
 					}
 				}
-				else if (*format == '%')
+			}
+			else if (*format == '%')
 				{
 					write(1, "%", 1);
 					digit_count++;
