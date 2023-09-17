@@ -1,48 +1,6 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <stdarg.h>
 #include "main.h"
-/**
- * _putchar - ...
- * @c: ...
- * description: ...
- * Return: ...
-*/
-void _putchar(char c)
-{
-	write(1, &c, 1);
-}
-/**
- * _puts - ...
- * @str: ...
- * description: ...
- * Return: ...
-*/
-void _puts(char *str)
-{
-	int i;
-
-	i = 0;
-	if (str)
-	{
-	while (str[i] != '\0')
-	{
-	_putchar(str[i]);
-	i++;
-	}
-	}
-}
-/**
- * _percent - ...
- * description: ...
- * Return: ...
-*/
-void _percent(void)
-{
-	char ch = '%';
-
-	_putchar(ch);
-}
 /**
  * _printf - print the string
  * @format: a character string
@@ -66,25 +24,36 @@ int _printf(const char *format, ...)
 		{
 		char *str = va_arg(pt, char *);
 
-		_puts(str);
+			int j = 0;
+	    		if (str)
+	    		{
+	    		while (str[j] != '\0')
+	    		{
+	    		putchar(str[j]);
+	    		j++;
+	    		}	
+	    		}
 		break;
 		}
 	case 'c':
 		{
 		int ch = va_arg(pt, int);
 
-		_putchar(ch);
+		putchar('ch');
 		break;
 		}
 	case '%':
-	_percent();
-	break;
+		{
+		putchar('%');
+		break;
+		}
 	}
 	}
 	else
-	_putchar(format[i]);
+	{
+	putchar(format[i]);
+	}
 	i++;
 	}
 	va_end(pt);
-	return (0);
 }
