@@ -25,15 +25,15 @@ int _printf(const char *format, ...)
 		char *str = va_arg(pt, char *);
 
 			int j = 0;
-	    		if (str)
-	    		{
-	    		while (str[j] != '\0')
-	    		{
-	    		putchar(str[j]);
-	    		j++;
-	    		}	
-	    		}
-		break;
+			if (str)
+			{
+				while (str[j] != '\0')
+				{
+					putchar(str[j]);
+					j++;
+				}
+			}
+			break;
 		}
 	case 'c':
 		{
