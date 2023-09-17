@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
 /**
  * _printf - print the string
@@ -10,44 +8,43 @@
 int _printf(const char *format, ...)
 {
 	va_list pt;
-	unsigned int i = 0;
+	int char_count = 0;
 
 	va_start(pt, format);
-	while (format && format[i] != '\0')
+	for (; format && *format != '\0'; format++)
 	{
-	if (format[i] == '%')
-	{
-	i++;
-	switch (format[i])
-	{
-	case 's':
-		char *str = va_arg(pt, char *);
-			int j = 0;
-			
-			if (str)
+		if (*format == '%')
+		{
+		format++;
+			if (*format == 's')
 			{
-				while (str[j] != '\0')
+				char *str = va_arg(pt, char *);
+
+				for (; str && *str != '\0'; str++)
 				{
-					putchar(str[j]);
-					j++;
+					putchar(*str);
+					char_count++;
 				}
 			}
-			break;
-	case 'c':
-		int ch = va_arg(pt, int);
+			else if (*format == 'c')
+			{
+				int ch = va_arg(pt, int);
 
-		putchar('ch');
-		break;
-	case '%':
-		putchar('%');
-		break;
-	}
-	}
-	else
-	{
-	putchar(format[i]);
-	}
-	i++;
+				putchar(ch);
+				char_count++;
+			}
+			else if (*format == '%')
+			{
+				putchar('%');
+				char_count++;
+			}
+		}
+		else
+		{
+			putchar(*format);
+			char_count++;
+		}
 	}
 	va_end(pt);
+	return (char_count);
 }
