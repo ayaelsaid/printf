@@ -21,10 +21,9 @@ int _printf(const char *format, ...)
 	switch (format[i])
 	{
 	case 's':
-		{
 		char *str = va_arg(pt, char *);
-
 			int j = 0;
+			
 			if (str)
 			{
 				while (str[j] != '\0')
@@ -34,19 +33,14 @@ int _printf(const char *format, ...)
 				}
 			}
 			break;
-		}
 	case 'c':
-		{
 		int ch = va_arg(pt, int);
 
 		putchar('ch');
 		break;
-		}
 	case '%':
-		{
 		putchar('%');
 		break;
-		}
 	}
 	}
 	else
