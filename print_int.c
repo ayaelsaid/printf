@@ -28,13 +28,13 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 			{
-				_putchar('%');
+				write(1, "%", 1);
 				digit_count++;
 			}
 		}
 		else
 		{
-			_putchar(*format);
+			write(1, format, 1);
 			digit_count++;
 		}
 
