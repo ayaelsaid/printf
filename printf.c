@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 
 	va_start(pt, format);
+	if (foramt == NULL || (format[0] == '%' && format[1] == '\0'))
+	return (-1);
 	for (; format && *format != '\0'; format++)
 	{
 		if (*format == '%')
@@ -18,31 +20,25 @@ int _printf(const char *format, ...)
 		format++;
 			if (*format == 's')
 			{
-				char *str = va_arg(pt, char *);
+				const char *str = va_arg(pt, char *);
 
-				for (; str && *str != '\0'; str++)
-				{
-					putchar(*str);
-					char_count++;
-				}
+				char_count += _puts(str);
 			}
 			else if (*format == 'c')
 			{
 				int ch = va_arg(pt, int);
 
-				putchar(ch);
-				char_count++;
+				if (c)
+				char_count += _putchar(ch);
 			}
 			else if (*format == '%')
 			{
-				putchar('%');
-				char_count++;
+				char_count += _percent();
 			}
 		}
 		else
 		{
-			putchar(*format);
-			char_count++;
+			char_count += _putchar(*format);
 		}
 	}
 	va_end(pt);
