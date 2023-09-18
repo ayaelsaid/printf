@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 int _puts(const char *str);
-int _percent(void);
+void _percent(void);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int fp_intger(int n);
