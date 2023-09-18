@@ -10,9 +10,9 @@ int _printf(const char *format, ...)
 	va_list pt;
 	int char_count = 0;
 
-	va_start(pt, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
+	va_start(pt, format);
 	for (; format && *format != '\0'; format++)
 	{
 		if (*format == '%')
@@ -22,14 +22,17 @@ int _printf(const char *format, ...)
 			{
 				const char *str = va_arg(pt, char *);
 
+				if (str)
 				char_count += _puts(str);
+				else
+				char_count += _puts("(null)");
 			}
 			else if (*format == 'c')
 			{
 				int ch = va_arg(pt, int);
 
-				if (ch)
-				char_count += _putchar(ch);
+				_putchar(ch);
+				char_count++;
 			}
 			else if (*format == '%')
 			{

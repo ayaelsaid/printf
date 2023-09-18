@@ -3,16 +3,6 @@
 #include <unistd.h>
 
 /**
- * _putchar - writes a character to stdout
- * @c: The character to print
- * Return: On success 1, on error -1
- */
-int _putchar(char c)
-{
-return (write(1, &c, 1));
-}
-
-/**
  * fp_intger - prints an integer
  * @n: The integer to print
  * Return: Number of digits printed
