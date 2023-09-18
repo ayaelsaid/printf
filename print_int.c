@@ -25,8 +25,8 @@ int _printf(const char *format, ...)
 				int digit = 0;
 				int div = 1;
 
-				number == 0 ? (_putchar('0'), digit_count++) : 0;
-				number < 0 ? (_putchar('-'), digit_count++, number = -number) : 0;
+				number == 0 ? (write(1, "0", 1), digit_count++) : 0;
+				number < 0 ? (write(1, "-", 1), digit_count++, number = -number) : 0;
 				if (tmp != 0)
 				{
 					while (tmp != 0)
@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 					{
 						int digit = number / div;
 						char num_char = digit + '0';
-						_putchar(num_char);
+						write(1, &num_char, 1);
 						digit_count++;
 						number %= div;
 						div = div / 10;
@@ -51,13 +51,13 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 			{
-				_putchar('%');
+				write(1, "%", 1);
 				digit_count++;
 			}
 		}
 		else
 		{
-			_putchar(*format);
+			write(1, format, 1);
 			digit_count++;
 		}
 		format++;
