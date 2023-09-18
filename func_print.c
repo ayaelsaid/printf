@@ -1,4 +1,6 @@
 #include"main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 /**
  * _putchar - writes a character to stdout
@@ -17,25 +19,24 @@ return (write(1, &c, 1));
  */
 int fp_intger(int n)
 {
-int digit_count = 0;
+	int digit_count = 0;
 
-if (n == 0)
-{
-_putchar('0');
-digit_count++;
-}
-else if (n < 0)
-{
-_putchar('-');
-digit_count++;
-n = -n;
-}
+	if (n == 0)
+	{
+		_putchar('0');
+		digit_count++;
+	}
+	else if (n < 0)
+	{
+		_putchar('-');
+		digit_count++;
+		n = -n;
+	}
 
-if (n / 10)
-digit_count += fp_intger(n / 10);
+	if (n / 10)
+		digit_count += fp_intger(n / 10);
 
-_putchar((n % 10) + '0');
-digit_count++;
-
-return (digit_count);
+	_putchar((n % 10) + '0');
+	digit_count++;
+	return (digit_count);
 }
