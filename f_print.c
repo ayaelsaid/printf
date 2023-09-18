@@ -21,7 +21,7 @@ int _puts(const char *str)
  * _percent - ...
  * Return: ...
 */
-int _percent(void)
+void _percent(void)
 {
-	return (_putchar('%'));
+	_putchar('%');
 }
