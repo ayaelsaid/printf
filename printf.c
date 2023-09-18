@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 
 	va_start(pt, format);
-	if (foramt == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
 	for (; format && *format != '\0'; format++)
 	{
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 			{
 				int ch = va_arg(pt, int);
 
-				if (c)
+				if (ch)
 				char_count += _putchar(ch);
 			}
 			else if (*format == '%')
