@@ -15,7 +15,7 @@ int sp_print_int(va_list arg)
 	if (num == 0)
 	{
 		_putchar('0');
-		num_count;
+		num_count++;
 	}
 	if (num < 0)
 	{
