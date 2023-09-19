@@ -3,32 +3,41 @@
 #include <unistd.h>
 
 /**
- * print_int - prints an integer
- * @n: The integer to print
+ * sp_print_int - prints an integer
+ * @num: The integer to print
  * Return: Number of digits printed
  */
-int print_int(int n)
+int sp_print_int(va_list arg)
 {
-	int print_char = 0;
-	int n = va_arg(arg, int);
+	int num_count = 0;
+	int num = va_arg(arg, int);
 
-	if (n == 0)
+	if (num == 0)
 	{
-		write(1, "0", 1);
-		print_char++;
+		_putchar('0');
+		num_count;
 	}
-	else if (n < 0)
+	if (num < 0)
 	{
-		write(1, "-", 1);
-		print_char++;
-		n = -n;
+		_putchar('-');
+		num = -num;
+		num_count++;
 	}
+	else
+	{
+		int rev = 0;
 
-	if (n / 10)
-		print_char += print_int(n / 10);
-	char n_char = (n % 10) + '0';
-
-	write(1, &n_char, 1);
-	print_char++;
-	return (print_char);
+		while (num > 0)
+		{
+			rev = rev * 10 + num % 10;
+			num /= 10;
+		}
+		while (rev > 0)
+		{
+			_putchar('0' + rev % 10);
+			rev /= 10;
+			num_count++;
+		}
+	}
+	return (num_count);
 }
