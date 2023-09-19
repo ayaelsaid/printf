@@ -10,8 +10,8 @@ int (*get_sp_func(char s))(va_list arg)
 	sp_t sps[] = {
 		{'c', sp_print_char},
 		{'s', sp_puts},
-		{"d", print_intger},
-		{"i", print_intger},
+		{"d", sp_print_intger},
+		{"i", sp_print_intger},
 		{0, NULL},
 	};
 
@@ -20,7 +20,7 @@ int (*get_sp_func(char s))(va_list arg)
 	i = 0;
 	while (sps[i].sp)
 	{
-		if (ops[i].op == s)
+		if (sps[i].sp == s)
 		{
 		return (sps[i].f);
 		}
