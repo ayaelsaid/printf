@@ -9,35 +9,26 @@
  */
 int sp_print_int(va_list arg)
 {
+	int number = va_arg(arg, int);
+	unsigned int div = 1;
 	int num_count = 0;
-	int num = va_arg(arg, int);
 
-	if (num == 0)
-	{
-		_putchar('0');
-		num_count++;
-	}
-	if (num < 0)
+	if (number < 0)
 	{
 		_putchar('-');
-		num = -num;
 		num_count++;
+		number = -number;
 	}
-	else
-	{
-		int rev = 0;
 
-		while (num > 0)
-		{
-			rev = rev * 10 + num % 10;
-			num /= 10;
-		}
-		while (rev > 0)
-		{
-			_putchar('0' + rev % 10);
-			rev /= 10;
-			num_count++;
-		}
+	for (; number / div > 9; div *= 10)
+		;
+	for (; div >= 1; div /= 10)
+	{
+		int output = number / div;
+
+		_putchar('0' + output);
+		number %= div;
+		num_count++;
 	}
 	return (num_count);
 }
