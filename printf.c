@@ -7,43 +7,43 @@
 */
 int _printf(const char *format, ...)
 {
-	va_list pt;
+	va_list arg;
 	int char_count = 0;
+	int print_c = 0;
+	int (*f)(va_list);
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
-	va_start(pt, format);
-	for (; format && *format != '\0'; format++)
+	if (format[0] == '%' && format[1] == ' ')
+	return (-1);
+	va_start(arg, format);
+	while (*format)
 	{
+	if (*format != '%')
+	{
+		_putchar(*format);
+		char_count++;
+	}
+	else
+	{
+		format++;
 		if (*format == '%')
 		{
-		format++;
-			if (*format == 's')
-			{
-				const char *str = va_arg(pt, char *);
-
-				if (str)
-				char_count += _puts(str);
-				else
-				char_count += _puts("(null)");
-			}
-			else if (*format == 'c')
-			{
-				int ch = va_arg(pt, int);
-
-				_putchar(ch);
-				char_count++;
-			}
-			else if (*format == '%')
-			{
-				char_count += _percent();
-			}
+			_putchar('%');
+			char_count++;
 		}
 		else
 		{
-			char_count += _putchar(*format);
+			f = get_sp_func(*format);
+			if (f)
+			{
+				print_c = f(arg);
+				char_count += print_c;
+			}
 		}
+		}
+		format++;
 	}
-	va_end(pt);
+	va_end(arg);
 	return (char_count);
 }

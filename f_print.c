@@ -1,42 +1,36 @@
-#include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
- * _putchar - writes a character to stdout
- * @c: The character to print
- * Return: On success 1, on error -1
+ * sp_puts - function that prints a string
+ * @arg: va_list containing the string
+ * Return: characte]rs number
  */
-int _putchar(char c)
+int sp_puts(va_list arg)
 {
-	return (write(1, &c, 1));
-}
-/**
- * _puts - function that prints a string
- * @str: take a string
- * Return: void
-*/
-int _puts(const char *str)
-{
+	const char *str = va_arg(arg, char *);
 	int char_count = 0;
 	int i = 0;
 
-	if (str)
+	if (!str)
 	{
-		while (str[i] != '\0')
-		{
-		_putchar(str[i]);
+	const char *s = "(nil)";
+
+	while (s[i] != '\0')
+	{
+		_putchar(s[i]);
 		char_count++;
 		i++;
+	}
+	}
+	else
+	{
+		i = 0;
+		while (str[i] != '\0')
+		{
+			_putchar(str[i]);
+			char_count++;
+			i++;
 		}
 	}
 	return (char_count);
-}
-/**
- * _percent - function that prints '%'
- * Return: void
- */
-int _percent(void)
-{
-	return (_putchar('%'));
 }
