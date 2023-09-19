@@ -6,12 +6,11 @@
 #include <unistd.h>
 
 /**
- * struct sp - Struct sp
- *
+ * struct sp - struct Sp
  * @sp: The specifiers
  * @f: The function associated
  */
-typedef struct op
+typedef struct sp
 {
 	char sp;
 	int (*f)(va_list args);
