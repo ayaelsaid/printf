@@ -10,8 +10,8 @@ int (*get_sp_func(char s))(va_list arg)
 	sp_t sps[] = {
 		{'c', sp_print_char},
 		{'s', sp_puts},
-		{"d", sp_print_int},
-		{"i", sp_print_int},
+		{'d', sp_print_int},
+		{'i', sp_print_int},
 		{0, NULL},
 	};
 
