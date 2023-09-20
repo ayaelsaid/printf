@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  * sp_print_octal - ...
- * @arg: ...y
+ * @arg: ...
  * Return: ...
 */
+
 int sp_print_octal(va_list arg)
 {
 	int number = va_arg(arg, int);
@@ -16,17 +18,17 @@ int sp_print_octal(va_list arg)
 	{
 		while (number > 0)
 		{
-		octal_num[i] = number % 8;
-		number /= 8;
-		i++;
-		number_count++;
+			octal_num[i] = number % 8;
+			number /= 8;
+			i++;
+			number_count++;
 		}
-	j = i - 1;
-	while (j >= 0)
-	{
-		_putchar(octal_num[j]);
+		j = i - 1;
+		while (j >= 0)
+		{
+			_putchar(octal_num[j]);
 			j--;
-	}
+		}
 	}
 	return (number_count);
 }
