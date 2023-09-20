@@ -13,14 +13,14 @@ int sp_puts(va_list arg)
 
 	if (!str)
 	{
-	const char *s = "(nil)";
+		str = "(null)";
 
-	while (s[i] != '\0')
-	{
-		_putchar(s[i]);
-		char_count++;
-		i++;
-	}
+		while (str[i] != '\0')
+		{
+			_putchar(str[i]);
+			char_count++;
+			i++;
+		}
 	}
 	else
 	{

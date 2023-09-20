@@ -20,12 +20,9 @@ int _putchar(char c)
 int sp_print_char(va_list arg)
 {
 	int ch = va_arg(arg, int);
-	int char_count = 0;
 
-	if (ch && ch != '\0')
-	{
+	if (ch != '\0')
+
 		_putchar(ch);
-		char_count++;
-	}
-	return (char_count);
+	return (1);
 }
