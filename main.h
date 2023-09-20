@@ -21,6 +21,10 @@ int sp_puts(va_list arg);
 int sp_print_char(va_list arg);
 int sp_print_int(va_list arg);
 int sp_print_binary(va_list arg);
+int sp_print_hex_uc(va_list arg);
+int sp_print_hex_lc(va_list arg);
+int sp_print_octal(va_list arg);
+int sp_print_unint(va_list arg);
 int (*get_sp_func(char s))(va_list arg);
 int _printf(const char *format, ...);
 
