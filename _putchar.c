@@ -19,10 +19,33 @@ int _putchar(char c)
 
 int sp_print_char(va_list arg)
 {
+	int char_count = 0;
 	int ch = va_arg(arg, int);
 
-	if (ch != '\0')
-
+	if (ch == '\0')
+	{
+		_putchar(' ');
+		char_count += 1;
+		return (char_count);
+	}
+	else
+	{
 		_putchar(ch);
-	return (1);
+		char_count++;
+	}
+	return (char_count);
+}
+/**
+ * sp_printf_per - function prints 37
+ * @arg: va_list containing argument
+ * Return: char_count
+ */
+int sp_printf_per(va_list arg)
+{
+	int char_count = 0;
+
+	(void)arg;
+	_putchar('%');
+	char_count++;
+	return (char_count);
 }

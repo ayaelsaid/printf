@@ -10,6 +10,7 @@ int (*get_sp_func(char s))(va_list arg)
 	sp_t sps[] = {
 		{'c', sp_print_char},
 		{'s', sp_puts},
+		{'%', sp_printf_per},
 		{'d', sp_print_int},
 		{'i', sp_print_int},
 		{'b', sp_print_binary},
