@@ -4,7 +4,7 @@
 
 /**
  * sp_print_int - prints an integer
- * @arg:argument
+ * @arg:argument...
  * Return: Number of digits printed
  */
 int sp_print_int(va_list arg)
