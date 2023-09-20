@@ -20,6 +20,7 @@ int _putchar(char c);
 int sp_puts(va_list arg);
 int sp_print_char(va_list arg);
 int sp_print_int(va_list arg);
+int sp_print_binary(va_list arg);
 int (*get_sp_func(char s))(va_list arg);
 int _printf(const char *format, ...);
 
