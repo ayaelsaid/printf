@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * sp_print_unint - ...
+ * sp_print_unint - prints unsigned intger
  * @arg: ...
  * Return: Number of digits printed
  */
