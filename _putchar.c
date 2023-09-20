@@ -22,17 +22,8 @@ int sp_print_char(va_list arg)
 	int char_count = 0;
 	int ch = va_arg(arg, int);
 
-	if (ch == '\0')
-	{
-		_putchar(' ');
-		char_count += 1;
-		return (char_count);
-	}
-	else
-	{
-		_putchar(ch);
-		char_count++;
-	}
+	_putchar(ch);
+	char_count++;
 	return (char_count);
 }
 /**
