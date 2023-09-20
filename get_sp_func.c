@@ -13,6 +13,7 @@ int (*get_sp_func(char s))(va_list arg)
 		{'d', sp_print_int},
 		{'i', sp_print_int},
 		{'b', sp_print_binary},
+		{'r', sp_rev_str},
 		{0, NULL},
 	};
 
