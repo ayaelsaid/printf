@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - print the string
  * @format: a character string
@@ -35,8 +36,8 @@ int _printf(const char *format, ...)
 	}
 	else
 	{
-	_putchar(*format);
-	char_count++;
+		_putchar(*format);
+		char_count++;
 	}
 	format++;
 	}

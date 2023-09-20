@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * sp_print_hex_uc - ...
+ *sp_print_hex_uc - prints hexa decimal number
  * @arg : argument
- * Reutrn: ....
+ *Return:printed number count
+ */
 
 int sp_print_hex_uc(va_list arg)
 {
