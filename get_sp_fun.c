@@ -2,7 +2,7 @@
 
 /**
  * get_sp_func - function that selects the correct function
- * @s: specifiers
+ * @s: specifiers...
  * Return: Function pointer to the corresponding specifier
  */
 int (*get_sp_func(char s))(va_list arg)
