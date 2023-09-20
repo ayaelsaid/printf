@@ -13,6 +13,8 @@ int (*get_sp_func(char s))(va_list arg)
 		{'d', sp_print_int},
 		{'i', sp_print_int},
 		{'b', sp_print_binary},
+		{'u', sp_print_octal}'
+		{'x', sp_print_hex_lowercase},
 		{0, NULL},
 	};
 
