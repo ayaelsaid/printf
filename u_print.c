@@ -1,7 +1,11 @@
 #include "main.h"
 
 /**
+<<<<<<< HEAD
  * sp_print_unint - prints unsigned intger
+=======
+ * sp_print_unint - ...
+>>>>>>> e99fba4f58e95c9bdc564567b75850da44006cc6
  * @arg: ...
  * Return: Number of digits printed
  */

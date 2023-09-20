@@ -19,6 +19,7 @@ typedef struct sp
 int _putchar(char c);
 int sp_puts(va_list arg);
 int sp_print_char(va_list arg);
+int sp_printf_per(va_list arg);
 int sp_print_int(va_list arg);
 int sp_print_binary(va_list arg);
 int sp_print_hex_uc(va_list arg);

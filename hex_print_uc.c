@@ -2,7 +2,11 @@
 
 /**
  * sp_print_hex_uc - ...
+<<<<<<< HEAD
  * @arg: argument
+=======
+ * @arg: ...
+>>>>>>> e99fba4f58e95c9bdc564567b75850da44006cc6
  * Return: ...
 */
 

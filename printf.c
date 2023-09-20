@@ -14,35 +14,31 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	return (-1);
-	if (format[0] == '%' && format[1] == ' ')
-	return (-1);
 	va_start(arg, format);
-	while (*format)
+	while (*format && *format != '\0')
 	{
-	if (*format != '%')
-	{
-		_putchar(*format);
-		char_count++;
-	}
-	else
+	if (*format == '%')
 	{
 		format++;
-		if (*format == '%')
+		f = get_sp_func(*format);
+		if (f)
 		{
-			_putchar('%');
-			char_count++;
+			print_c = f(arg);
+			char_count += print_c;
 		}
 		else
 		{
-			f = get_sp_func(*format);
-			if (f)
-			{
-				print_c = f(arg);
-				char_count += print_c;
-			}
+			_putchar('%');
+			_putchar(*format);
+			char_count += 2;
 		}
-		}
-		format++;
+	}
+	else
+	{
+	_putchar(*format);
+	char_count++;
+	}
+	format++;
 	}
 	va_end(arg);
 	return (char_count);
