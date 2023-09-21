@@ -14,7 +14,7 @@ int sp_print_binary(va_list arg)
 	unsigned int temp = number;
 	int size = 0;
 
-	if (number == '0')
+	if (number == 0)
 	{
 		_putchar('0');
 		number_count += 1;
@@ -41,5 +41,6 @@ int sp_print_binary(va_list arg)
 		_putchar(binary_num[j] + '0');
 		j--;
 	}
+	free(binary_num);
 	return (number_count);
 }

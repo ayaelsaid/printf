@@ -8,12 +8,13 @@
 
 int sp_print_hex_lc(va_list arg)
 {
-	int number = va_arg(arg, int);
-	int i = 0;
+	unsigned int number = va_arg(arg, unsigned int);
 	int j;
+	int i = 0;
 	int number_count = 0;
-	int hex_num[64];
+	unsigned int hex_num[64];
 	int reminder = 0;
+	unsigned int temp = number;
 
 	if (number == 0)
 	{
@@ -21,9 +22,9 @@ int sp_print_hex_lc(va_list arg)
 		number_count += 1;
 		return (number_count);
 	}
-	while (number > 0)
+	while (temp > 0)
 	{
-		reminder = number % 16;
+		reminder = temp % 16;
 		if (reminder < 10)
 		{
 			hex_num[i] = reminder + '0';
@@ -32,7 +33,7 @@ int sp_print_hex_lc(va_list arg)
 		{
 			hex_num[i] = reminder - 10 + 'a';
 		}
-		number /= 16;
+		temp /= 16;
 		i++;
 		number_count++;
 	}
