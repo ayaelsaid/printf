@@ -6,11 +6,13 @@
 */
 int sp_print_binary(va_list arg)
 {
-	int number = va_arg(arg, int);
+	unsigned int number = va_arg(arg, unsigned int);
 	int i = 0;
 	int j;
 	int number_count = 0;
-	int binary_num[64];
+	unsigned int *binary_num;
+	unsigned int temp = number;
+	int size = 0;
 
 	if (number == '0')
 	{
@@ -18,11 +20,19 @@ int sp_print_binary(va_list arg)
 		number_count += 1;
 		return (number_count);
 	}
-	while (number > 0)
+	while (temp > 0)
 	{
-		binary_num[i] = number % 2;
-		number /= 2;
-		i++;
+		size++;
+		temp /= 2;
+	}
+	binary_num = malloc(sizeof(unsigned int) * (size + 1));
+	if (!binary_num)
+		return (-1);
+	temp = number;
+	for (i = 0; i < size; i++)
+	{
+		binary_num[i] = temp % 2;
+		temp /= 2;
 		number_count++;
 	}
 	j = i - 1;
