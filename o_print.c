@@ -9,7 +9,7 @@
 int sp_print_octal(va_list arg)
 {
 	unsigned int number = va_arg(arg, unsigned int);
-	int i;
+	int i = 0;
 	int j;
 	int number_count = 0;
 	unsigned int octal_num[12];
@@ -24,7 +24,6 @@ int sp_print_octal(va_list arg)
 	}
 	while (temp > 0)
 	{
-		i = 0;
 		reminder = temp % 8;
 		octal_num[i] = reminder + '0';
 		temp /= 8;
